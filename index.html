@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    body{
+      padding: 3rem;
+      padding-bottom: 0;
+      background-image: url("images/bg-pattern-desktop.svg");
+    }
+    input{
+      display: inline-block;
+      padding: .8rem;
+      border-radius: 30px;
+      width: 20rem;
+      border: .1px solid #fce7e7;
+    }
+    a{
+      text-decoration-line: none;
+    }
+    #body{
+      padding-right: 50%;
+      line-height: 1.5; 
+    }
+    .h1{
+      font-size: 60px;
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    .happy{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+    }
+    .happy2{
+      display: none;
+    }
+    .orange{
+      color: rgb(194, 41, 41);
+    }
+    .btn{
+      display: inline-block;
+      background-color: rgb(221, 78, 78);
+      border-radius: 30px;
+      margin-left: 0;
+      padding: .5rem;
+      position: relative;
+      right: 5rem;
+      top: .3rem;
+      width: 5rem;
+    }
+    .btn:hover{
+      
+      box-shadow: 5px 10px 10px rgb(201, 136, 136);
+      height: 3.2rem;
+    }
+    .error{
+      display: none;
+      position: relative;
+      bottom: 2.2rem;
+      left: 15rem;
+    }
+    .red{
+      display: none;
+      color: red;
+    }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+    @media (max-width: 480px) {
+            body {
+                text-align: center;
+            }
+            p{
+              line-height: 1.4;
+            }
+            input{
+              width: 10rem;
+            }
+            #body{
+              padding-right: 4rem;
+              line-height: 1;
+            }
+            .happy{
+              display: none;
+            }
+            .happy2{
+              display: block;
+              width: 480px;
+              position: relative;
+              right: 4.5rem;
+            }
+            .error{
+              display: none;
+              position: relative;
+              bottom: 2rem;
+              left: 5.5rem;
+            }     
+        }
+  </style>
+</head>
+
+<body>
+  <main id="body">
+    <img src="images/logo.svg" alt="logo">
+    <img class="happy" src="images/hero-desktop.jpg" alt="girl">
+    <img class="happy2" src="images/hero-mobile.jpg" alt="girl">
+    <h1 class="orange h1">We're</h1>
+    <h1 class="h1">coming soon</h1>
+
+    <p class="orange">Hello fellow shoppers! We're currently building our new fashion store.
+      Add your email below to stay up-to-date with announcements and our launch deals.</p>
+    <input type="email" placeholder="Email Address">
+    <button class="btn"><img src="images/icon-arrow.svg" alt="arrow"></button>
+    <img class="error" src="images/icon-error.svg" alt="error">
+    <p class="red">Please enter valid email</p>
+  </main>
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="#"> Frontend Mentor</a>.
+      Coded by <a href="#">Abhishek Bansal</a>.
+    </p>
+  </footer>
+  <script>
+    document.querySelector(".btn").addEventListener("click", function(){
+      var email = document.querySelector("input").value;
+      if(email.length != 0 && (email.includes("@") && email.includes("."))){
+        document.querySelector(".error").style.display = "none";
+        document.querySelector(".red").style.display = "none";
+        document.querySelector("input").style.border =".1px solid #fce7e7";
+      }
+      if(email.length == 0 || !(email.includes("@") && email.includes("."))){
+        document.querySelector(".error").style.display = "block";
+        document.querySelector(".red").style.display = "block";
+        document.querySelector("input").style.border ="1px solid red";
+      }
+
+    });
+    </script>
+</body>
+
+</html>
